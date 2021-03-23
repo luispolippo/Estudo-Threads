@@ -1,11 +1,23 @@
 package com.polippo.exerciciotread
 
-//TODO: 10 - Criar classe responsável por carregar os dados
+import com.google.gson.Gson
+import okhttp3.OkHttpClient
+import okhttp3.Request
+
+
 class AstrosRepository {
 
-    //TODO: 11 - Criar função para carregar os astronautas
+    fun loadData(): List<AstrosPeople>{
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("http://api.open-notify.org/astros.json")
+            .build()
+        val response = client.newCall(request).execute()
+        val result = parseJsonToResult(response.body?.string())
+        return result.people
+    }
 
-    //TODO: 12 - Criar função para converter Json
+    fun parseJsonToResult(json: String?) = Gson().fromJson(json, AstrosResult::class.java)
 
 
 }

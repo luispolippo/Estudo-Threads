@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.polippo.exerciciotread">
 
-    <!-- TODO: 01 - Incluir permissão de internet -->
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <!-- TODO: 19 - Incluir a propriedade android:usesClearTextTraffic="true" para requisição http -->
 

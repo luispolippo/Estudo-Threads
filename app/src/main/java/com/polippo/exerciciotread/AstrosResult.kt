@@ -1,3 +1,9 @@
 package com.polippo.exerciciotread
 
-//TODO: 09 - Criar classe para representar o resultado da API
+import com.google.gson.annotations.SerializedName
+
+data class AstrosResult(
+    @SerializedName("message") val message: String,
+    @SerializedName("number") val number: Int,
+    @SerializedName("people") val people: List<AstrosPeople>
+)
